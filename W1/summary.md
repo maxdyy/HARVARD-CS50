@@ -65,7 +65,7 @@ We want our program to ask the name of the user and then say "Hello, username".
 int main(void)
 {
     string answer = get_string("What's your name?\n")
-    printf("Hello, \n", answer);
+    printf("Hello, %s \n", answer);
 }
 ```
 
@@ -198,4 +198,5 @@ In C we have a whole list of data types besides strings and int, and here are so
 **string** String, a sequence of zero or more characters in double quotes  
 
 
-
+And here it is, the initial blocks o C programming language.  
+All this concepts are also common to other languages, so it's a good idea to learn them!
