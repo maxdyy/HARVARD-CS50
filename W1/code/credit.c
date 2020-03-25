@@ -1,3 +1,5 @@
+//FIRST TIME WRITING IN C, DO NOT JUDGE
+
 #include <cs50.h>
 #include <stdio.h>
 
@@ -73,17 +75,24 @@ char *GetCardProvider(const long creditCardNumber)
     snprintf(creditCardNumberString, 50, "%ld", creditCardNumber);
 
     int firstDigitOfTheCard = CharToInt(creditCardNumberString[0]);
+    int secondDigitOfTheCard = CharToInt(creditCardNumberString[1]);
 
-    switch (firstDigitOfTheCard)
+    if (firstDigitOfTheCard == 3 && (secondDigitOfTheCard == 4 || secondDigitOfTheCard == 7))
     {
-        case 3:
-            return "AMEX\n";
-        case 4:
-            return "VISA\n";
-        case 5:
-            return "MASTERCARD\n";
-        default:
-            return "INVALID\n";
+        return "AMEX\n";
+    }
+    else if (firstDigitOfTheCard == 5 && (secondDigitOfTheCard == 1 || secondDigitOfTheCard == 2 || secondDigitOfTheCard == 3
+                                          || secondDigitOfTheCard == 4 || secondDigitOfTheCard == 5))
+    {
+        return "MASTERCARD\n";
+    }
+    else if (firstDigitOfTheCard == 4)
+    {
+        return "VISA\n";
+    }
+    else
+    {
+        return "INVALID\n";
     }
 }
 
@@ -99,30 +108,27 @@ int checkIfCardIsValid(long creditCardNumber, int creditCardNumberLength)
     snprintf(creditCardNumberString, 50, "%ld", creditCardNumber);
 
     int creditCardNumberSum = 0;
-    int firstSum = 0;
-    int secondSum = 0;
 
     for (int i = creditCardNumberLength; i >= 0; i--)
     {
-        if (i % 2 != 0)
+        if (i % 2 != 0 && creditCardNumberLength % 2 != 0)
         {
             int currentCardNum = CharToInt(creditCardNumberString[i]);
             int multipliedCurrentNum = currentCardNum * 2;
             int summedMultipliedCurrentNum = sumTheDouble(multipliedCurrentNum);
-
-            printf("currentCardNum: %i\n", currentCardNum);
-            printf("multipliedCurrentNum: %i\n", multipliedCurrentNum);
-            printf("summedMultipliedCurrentNum: %i\n", multipliedCurrentNum);
-
             creditCardNumberSum += summedMultipliedCurrentNum;
-            firstSum +=summedMultipliedCurrentNum;
+        }
+        else if (i % 2 == 0 && creditCardNumberLength % 2 == 0)
+        {
+            int currentCardNum = CharToInt(creditCardNumberString[i]);
+            int multipliedCurrentNum = currentCardNum * 2;
+            int summedMultipliedCurrentNum = sumTheDouble(multipliedCurrentNum);
+            creditCardNumberSum += summedMultipliedCurrentNum;
         }
         else
         {
             int currentCardNum = CharToInt(creditCardNumberString[i]);
-            printf("currentCardNum: %i\n", currentCardNum);
             creditCardNumberSum += currentCardNum;
-            secondSum += currentCardNum;
         }
     }
 
