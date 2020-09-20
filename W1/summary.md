@@ -16,7 +16,7 @@ int main(void)
 }
 ```
 
-In this snippet of C code, the part that catches or eyes right away is the printf("Hello World");  
+In this snippet of C code, the part that catches our eyes right away is the printf("Hello World");  
 This is the actual part that prints the "Hello World" string.
 
 Now C, unlike JavaScript, is a **compiled language**.  
@@ -134,7 +134,7 @@ else
 {
 ```
 
-Here we can see the equality operators being used:
+Here we can see the equality operators being used:  
 **<** First operand less than second operand  
 **>** First operand greater than second operand
 
