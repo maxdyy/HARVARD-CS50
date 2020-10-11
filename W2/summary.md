@@ -1,6 +1,6 @@
 ##HARVARD CS50 - Arrays, Functions, Variables and Scope
 
-In this part of Harvard CS50 we will focus on the process of writing well designed software by making more intelligent decisions.  
+In this part of Harvard CS50 we will focus on the process of writing well-designed software by making more intelligent decisions.  
 This will allow us to not just get the problem solved, but get it **solved well**.  
 
 Considering this in the context of programming, we can use features of our programming languages to solve problems better.  
